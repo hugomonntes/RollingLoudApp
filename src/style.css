@@ -58,7 +58,7 @@ header{
 main{
     width: 95%;
     height: 80%;
-    border: 2px solid rgb(182, 182, 182);
+    box-shadow: 0px 0px 10px 5px rgb(182, 182, 182);
 }
 
 .section_carrousel{
@@ -139,30 +139,7 @@ main{
 
 }
 
-
-.img1{
-    background-image: url(./IMG/ARTISTAS/DRAKE/Drake\ fondo.png);
-    background-size: cover ;
-    width: 100%;
-
-}
 .lettering{
     width: 100%;
 
-}
-.img2{
-    background-image: url(./IMG/ARTISTAS/COLDPLAY/Coldplayfondo.png);
-    background-size: cover ;
-    width: 100%;
-}
-
-.img3{
-    background-image: url(/IMG/ARTISTAS/BILLIE_EILISH/BILLIEBACKGROUND.png);
-    background-size: cover ;
-    width: 100%;
-}
-.img4{
-    background-image: url(./IMG/ARTISTAS/BRUNO_MARS/BRUNOBACKGROUND.png);
-    background-size: cover ;
-    width: 100%;
 }
