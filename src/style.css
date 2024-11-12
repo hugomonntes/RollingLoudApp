@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Share:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Onest:wght@800&family=Sarabun:wght@600&display=swap");
+* {
+    margin: 0;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+html{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+body video {
+    position: absolute;
+    z-index: -1 !important;
+    object-fit: cover;
+    object-position: 100%;
+}
+
+.capa{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.8;
+}
+
+header{
+    width: 95%;
+    height: 15%;
+    padding: 20px;
+}
+
+.divLogo{
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.divLogo img{
+    height: 100%;
+}
+
+main{
+    width: 95%;
+    height: 80%;
+    border: 2px solid rgb(182, 182, 182);
+}
+
+.section_carrousel{
+    
+    display: block;
+
+    width: 100%;
+
+
+    
+}
+.container-carousel{
+    width: 100%;
+    height: 80vh;
+    background-color: #e0e0e0;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.66);
+    
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+}
+
+.carruseles{
+    width: 300%;
+    height: 100%;
+    display: flex;
+    
+    
+}
+
+.slider-section{
+    width: calc(100% / 3);
+    height: 100%;
+}
+
+.slider-section div{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    
+}
+
+.btn-left,.btn-right{
+    top: 0;
+    display: flex;
+    position: absolute;
+    font-size: 1.5rem;
+    background-color: transparent;
+    padding: 20px;
+    width: 7%;
+    margin: 0;
+    font-weight: 600;
+    cursor: pointer;
+    color: #00000081;
+    transform: translate(0,50);
+    transition: .5s ease;
+    user-select: none;
+    background-color: transparent;
+    height: 100%;  
+
+}
+.btn-left:hover,.btn-right:hover{
+    background-color: rgba(255, 255, 255, 0.609);
+    filter: brightness(1.5);
+    filter: blur(50%)
+}
+.botones{
+    height: 100%;
+}
+
+.btn-left{
+    left: 0px;
+
+}
+.btn-right{
+    right: 0px;
+
+}
+
+
+.img1{
+    background-image: url(./IMG/ARTISTAS/DRAKE/Drake\ fondo.png);
+    background-size: cover ;
+    width: 100%;
+
+}
+.lettering{
+    width: 100%;
+
+}
+.img2{
+    background-image: url(./IMG/ARTISTAS/COLDPLAY/Coldplayfondo.png);
+    background-size: cover ;
+    width: 100%;
+}
+
+.img3{
+    background-image: url(/IMG/ARTISTAS/BILLIE_EILISH/BILLIEBACKGROUND.png);
+    background-size: cover ;
+    width: 100%;
+}
+.img4{
+    background-image: url(./IMG/ARTISTAS/BRUNO_MARS/BRUNOBACKGROUND.png);
+    background-size: cover ;
+    width: 100%;
+}
