@@ -1,125 +1,105 @@
 @import url("https://fonts.googleapis.com/css2?family=Share:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Onest:wght@800&family=Sarabun:wght@600&display=swap");
+
 * {
     margin: 0;
     box-sizing: border-box;
-    z-index: 1;
 }
-html{
-    overflow-x: hidden;
-    overflow-y: hidden;
-}
+
 body {
     width: 100vw;
     height: 100vh;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
     display: flex;
+    justify-content: center;
     flex-direction: column;
+    align-items: center;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #a59891;
 }
-body video {
-    position: absolute;
-    z-index: -1 !important;
-    object-fit: cover;
-    object-position: 100%;
-}
-.capa{
+
+video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: #000000;
-    opacity: 0.8;
+    object-fit: cover;
+    z-index: -2;
 }
-header{
-    width: 95%;
-    height: 15%;
-    padding: 20px;
-}
-.divLogo{
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+header {
+    width: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
+    padding: 20px 0;
 }
-.divLogo img{
-    height: 100%;
+
+.logo-container img {
+    max-height: 80px;
 }
-main::-webkit-scrollbar{
-    display: none;
-}
-main{
-    border-radius: 10px;
-    width: 95%;
-    height: 80%;
-    overflow: scroll;
-    overflow-x: hidden;
+
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 25px;
+    text-align: center;
+    width: 90%;
+    height: 100%;
 }
-.selectCountry{
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.countrySelection {
+    display: flex;
+    justify-content: space-around;
     width: 100%;
-    height: 50%;
-    justify-content: center;
+    margin: 20px 0;
+}
+
+.country {
+    width: 30%;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    display: flex;
     align-items: center;
-    display: flex;
-    flex-direction: column;
-}
-.divMiami{
-    width: 30%;
-    height: 70%;
-    background-image: url(/img/Miami.webp);
-    background-size: cover;
-    background-position: 90%;
-    background-repeat: no-repeat;
-    filter: blur(80px);
-    margin: 50px;
-    display: flex;
+    justify-content: center;
+    font-size: 3rem;
     color: white;
-    font-size: 150px;
-    font-family: Bebas Neue;
-    transition: all 1s;
+    transition: filter 1s ease;
+    filter: blur(5px);
 }
-.divGermany{
-    width: 30%;
-    height: 70%;
-    background-image: url(/img/germany.jpg);
-    background-size: cover;
-    background-position: 90%;
-    background-repeat: no-repeat;
-    filter: blur(80px);
-    margin: 50px;
-    display: flex;
-    color: white;
-    font-size: 150px;
-    font-family: Bebas Neue;
-    transition: all 1s;
-}
-.divPortugal{
-    width: 30%;
-    height: 70%;
-    background-image: url(/img/portugal.jpg);
-    background-size: cover;
-    background-position: 90%;
-    background-repeat: no-repeat;
-    filter: blur(100px);
-    margin: 50px;
-    display: flex;
-    color: white;
-    font-size: 150px;
-    font-family: Bebas Neue;
-    transition: all 1s;
-}
-.divMiami:hover, .divGermany:hover, .divPortugal:hover{
+
+.country:hover {
     filter: blur(0);
 }
-#tituloReloj{
-    width: 100%;
-    color: white;
-    font-family: BEBAS NEUE;
-    font-size: 50px;
+
+.countdownSection {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#countdown {
+    font-size: 2.5rem;
+}
+
+.countdownSection h2 {
+    font-size: 1.8rem;
+    font-family: 'Bebas Neue', sans-serif;
 }
