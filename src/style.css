@@ -34,7 +34,7 @@ video {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.85);
     z-index: -1;
 }
 
@@ -71,22 +71,21 @@ main {
     margin: 20px 0;
 }
 
-.country {
+.country { /* Imágenes metidas en el propio div de HTML */
     width: 30%;
-    height: 250px;
+    height: 350px;
     background-size: cover;
     background-position: center;
     border-radius: 15px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 3rem;
     color: white;
     transition: filter 1s ease;
-    filter: blur(5px);
+    filter: blur(15px);
+    font-size: 85px;
 }
 
-.country:hover {
+.country.unlocked {
     filter: blur(0);
 }
 
