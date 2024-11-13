@@ -42,3 +42,15 @@ function moveToLeft() {
     slider.style.transform = `translate(-${operacion}%)`;
     slider.style.transition = "all ease .8s"
 }
+
+let titulo = document.getElementById('tituloReloj');
+addEventListener('load', mostrarReloj);
+setInterval(mostrarReloj, 1000);
+let dias = ['DOMINGO', 'LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SÁBADO'];
+function mostrarReloj(){
+    let fechaActual = new Date()
+    let dia = fechaActual.getDay()
+    let posicionDia = dias[dia];
+    let fechaExacta = fechaActual.toLocaleTimeString();
+    titulo.innerHTML = fechaExacta + ' ' +posicionDia;
+}
