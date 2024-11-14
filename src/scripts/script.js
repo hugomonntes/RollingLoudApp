@@ -13,7 +13,7 @@ const countries = document.querySelectorAll('.country');
             document.getElementById("countdown").innerHTML = 
                 `${days} DAYS ${hours} HOURS ${minutes} MINUTS ${seconds} SECONDS`;
         }
-        setInterval(updateCountdown, 1000);
+        setInterval(updateCountdown, 0);
 
         countries.forEach(country => {
             country.addEventListener('mouseover', () => {
