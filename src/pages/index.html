@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rolling Loud</title>
-    <link rel="shortcut icon" href="/RollingLoudApp/src/img/favicon/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="/RollingLoudApp/src/styles/style.css">
+    <link rel="shortcut icon" href="img/favicon/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/src/styles/style.css">
 </head>
 <body>
-    <video autoplay loop muted src="/RollingLoudApp/src/img/background.mp4"></video>
+    <video autoplay loop muted src="/src/img/background.mp4"></video>
     <div class="overlay"></div>
     <header>
         <div class="logoContainer">
-            <img src="/RollingLoudApp/src/img/logoRolling.png" alt="Rolling Loud Logo">
+            <img src="/src/img/logoRolling.png" alt="Rolling Loud Logo">
         </div>
     </header>
     <main>
@@ -20,25 +20,30 @@
             <h1 class="title">SELECT THE COUNTRY:</h1>
         </section>
         <section class="countrySelection">
-            <div class="country" style="background-image: url('/RollingLoudApp/src/img/Miami.webp');">
-                <p>Miami</p>
+            <div class="country" data-country="miami" style="background-image: url('/src/img/Miami.webp');">
+                <div class="country-content">
+                    <p>Miami</p>
+                    <div class="date"></div>
+                    <div class="countdown"></div>
+                </div>
             </div>
-            <div class="country" style="background-image: url('/RollingLoudApp/src/img/germany.jpg');">
-                <p>Germany</p>
+            <div class="country" data-country="germany" style="background-image: url('/src/img/germany.jpg');">
+                <div class="country-content">
+                    <p>Germany</p>
+                    <div class="date"></div>
+                    <div class="countdown"></div>
+                </div>
             </div>  
-            <div class="country" style="background-image: url('/RollingLoudApp/src/img/portugal.jpg');">
-                <p>Portugal</p>
+            <div class="country" data-country="portugal" style="background-image: url('/src/img/portugal.jpg');">
+                <div class="country-content">
+                    <p>Portugal</p>
+                    <div class="date"></div>
+                    <div class="countdown"></div>
+                </div>
             </div>
         </section>
-        <!-- //TODO poner contador debajo de cada country. -->
-        <!-- //TODO hacer barra redes sociales en el footer -->
-        <section class="countdownSection">
-            <div>
-                <h1 id="countdown"></h1>
-                <h2>¡MARCH 14 - 16, 2025!</h2>
-            </div>
-        </section>
+        <div class="slide-to-unlock">SLIDE TO UNLOCK</div>
     </main>
-    <script src="/RollingLoudApp/src/scripts/script.js"></script>
+    <script src="/src/scripts/script.js"></script>
 </body>
 </html>

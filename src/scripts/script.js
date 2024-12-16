@@ -1,29 +1,56 @@
-const targetDate = new Date(2025, 2, 14).getTime(); // Fecha límite del contador en este caso 14/Marzo/2025 (Marzo es el 2 porque el array comienza en 0 (Enero)).
 const countries = document.querySelectorAll('.country');
 
-        /**
-         * Actualiza la cuenta atrás desde hoy hasta la targetDay
-         */
-        function updateCountdown() {
-            const now = new Date().getTime(); // Fecha Actual
-            const timeLeft = targetDate - now; // Tiempo restante
+const targetDates = {
+    miami: new Date(2025, 2, 23).getTime(),
+    germany: new Date(2025, 4, 17).getTime(),
+    portugal: new Date(2025, 6, 7).getTime()
+};
 
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+function updateCountdown(country) {
+    const now = new Date().getTime();
+    const countryName = country.dataset.country;
+    const timeLeft = targetDates[countryName] - now;
 
-            document.getElementById("countdown").innerHTML = `${days} DAYS ${hours} HOURS ${minutes} MINUTS ${seconds} SECONDS`;
-        }
-        setInterval(updateCountdown, 0);
+    const countdownElement = country.querySelector('.countdown');
+    
+    if (timeLeft > 0) {
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        
+        countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    } else {
+        countdownElement.textContent = `Event started!`;
+    }
+}
 
-        /**
-         * Si el div de country tiene el blur, una vez se haga hover se le quita.
-         */
-        countries.forEach(country => {
-            country.addEventListener('mouseover', () => {
-                if (!country.classList.contains('unlocked')) {
-                    country.classList.add('unlocked');
-                }
-            });
-        });
+countries.forEach(country => {
+    let countdownInterval;
+
+    country.addEventListener('mouseenter', () => {
+        const dateElement = country.querySelector('.date');
+        const countdownElement = country.querySelector('.countdown');
+
+        dateElement.style.display = 'none';
+        countdownElement.style.display = 'block';
+
+        updateCountdown(country);
+        countdownInterval = setInterval(() => updateCountdown(country), 1000);
+    });
+
+    country.addEventListener('mouseleave', () => {
+        const dateElement = country.querySelector('.date');
+        const countdownElement = country.querySelector('.countdown');
+
+        countdownElement.style.display = 'none';
+        dateElement.style.display = 'block';
+
+        clearInterval(countdownInterval);
+    });
+
+    country.addEventListener('click', () => {
+        const countryName = country.dataset.country;
+        window.location.href = `${countryName}.html`;
+    });
+});

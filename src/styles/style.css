@@ -60,17 +60,16 @@ main {
     height: 100%;
 }
 
-.secTitle{
+.secTitle {
     width: 100%;
-    height: 20%;
+    height: 15%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .title {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
+    font-size: 4.5rem;
 }
 
 .countrySelection {
@@ -81,38 +80,170 @@ main {
     height: 50%;
 }
 
-.country { /* Imágenes metidas en el propio div de HTML */
+.country {
     width: 30%;
     height: 350px;
     background-size: cover;
     background-position: center;
     border-radius: 15px;
     display: flex;
-    justify-content: center;
-    color: white;
-    transition: filter 1s ease;
-    filter: blur(15px);
-    font-size: 85px;
-}
-
-.country.unlocked {
-    filter: blur(0);
-}
-
-.countdownSection {
-    margin-top: 20px;
-    text-align: center;
-    height: 30%;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: white;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    filter: blur(5px);
+}
+
+.country:hover {
+    filter: blur(0);
+    transform: scale(1.05);
+}
+
+.country-content {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
 }
 
-#countdown {
+.country:hover .country-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.country p {
+    font-size: 6rem;
+    transition: font-size 0.3s ease;
+}
+
+.country:hover p {
+    font-size: 7rem;
+}
+
+.date {
+    font-size: 3.5rem;
+    display: block;
+    text-align: center;
+    transition: font-size 0.5s ease, color 0.3s ease;
+}
+
+.countdown {
+    font-size: 3.5rem;
+    margin-top: 10px;
+    text-align: center;
+    display: block;
+    transition: font-size 0.5s ease, transform 0.3s ease;
+}
+
+.countdown:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon {
+    color: #a59891;
+    font-size: 24px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #ffffff;
+    transform: scale(1.2);
+}
+
+.country {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+.slide-to-unlock {
+    position: absolute;
+    bottom: 0px;
     font-size: 2.5rem;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    opacity: 1;
+    animation: bounceAnimation 2s ease-in-out infinite; 
+    animation-delay: 0.5s;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
-.countdownSection h2 {
-    font-size: 1.8rem;
-    font-family: 'Bebas Neue', sans-serif;
+@keyframes bounceAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0); 
+    }
+}
+
+.country:hover .slide-to-unlock {
+    animation: none; 
+    animation-delay: 0s;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 768px) {
+    .countrySelection {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .country {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .country-content {
+        padding: 15px;
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+
+    .country p {
+        font-size: 3rem;
+    }
+
+    .date, .countdown {
+        font-size: 2rem;
+    }
 }

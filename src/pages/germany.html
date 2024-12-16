@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling Loud Portugal</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Share:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Onest:wght@800&family=Sarabun:wght@600&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Share;
+        }
+
+        body {
+            font-family: Bebas Neue;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 60px;
+            margin-right: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .date {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 1rem;
+        }
+
+        .nav-links a {
+            color: #4a90e2;
+            font-size: 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-links a:hover {
+            color: #3a7bd5;
+            transform: translateY(-3px);
+        }
+
+        .sold-out-btn {
+            background-color: #8e44ad;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-weight: bold;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 25px;
+        }
+
+        .sold-out-btn:hover {
+            background-color: #7d3c98;
+            transform: scale(1.05);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background-color: #fff;
+            margin: 2px 0;
+            transition: all 0.3s ease;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.9) 100%);
+        }
+
+        .hero-title {
+            position: relative;
+            font-size: 6rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .lineup {
+            padding: 4rem 5%;
+            background-color: #111;
+        }
+
+        .lineup h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .artist {
+            background-color: #222;
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .artist:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .travel {
+            padding: 4rem 5%;
+            background-color: #000;
+        }
+
+        .travel h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 3.5rem;
+        }
+
+        .travel-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .travel-item {
+            flex-basis: calc(33.333% - 1rem);
+            background-color: #111;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .travel-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .travel-item h3 {
+            margin-bottom: 0.5rem;
+            color: #4a90e2;
+        }
+
+        .gallery {
+            padding: 4rem 5%;
+            background-color: #111;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 3.5rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        footer {
+            background-color: #000;
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-bottom: 1rem;
+        }
+
+        .social-icon {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .social-icon:hover {
+            color: #4a90e2;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .sold-out-btn {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .travel-item {
+                flex-basis: 100%;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .hero, .lineup, .travel, .gallery {
+            animation: fadeIn 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <a href="index.html"><img src="/src/img/logoRolling.png" alt="Rolling Loud Logo" class="logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">LINEUP</a></li>
+                <li><a href="#">TRAVEL</a></li>
+                <li><a href="#">MERCH</a></li>
+                <li><a href="#">LOUD CLUB</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">CASHLESS</a></li>
+            </ul>
+            <button class="sold-out-btn">TICKETS</button>
+            <div class="hamburger">
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <video autoplay loop muted class="hero-image" src="/src/img/cinematic.mp4"></video>
+            <div class="hero-overlay"></div>
+            <h1 class="hero-title">GERMANY 2025</h1>
+        </section>
+
+        <section id="travel" class="travel">
+            <h2>TRAVEL INFORMATION</h2>
+            <div class="travel-info">
+                <div class="travel-item">
+                    <h3>Getting There</h3>
+                    <p>Find the best routes to Praia da Rocha, Portimão.</p>
+                </div>
+                <div class="travel-item">
+                    <h3>Accommodation</h3>
+                    <p>Book your stay at our partner hotels and hostels.</p>
+                </div>
+                <div class="travel-item">
+                    <h3>Local Transportation</h3>
+                    <p>Discover how to move around during the festival.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery">
+            <h2>GALLERY</h2>
+            <div class="gallery-grid">
+                <img src="https://media.npr.org/assets/img/2021/11/16/gettyimages-1235223332_sq-e88ad790d447bd7dfcb0c1571047db26d39a8ee0.jpg" alt="" class="gallery-image">
+                <img src="https://charts-static.billboard.com/img/2017/09/trippie-redd-ck3-344x344.jpg" alt="" class="gallery-image">
+                <img src="https://cdn-images.dzcdn.net/images/artist/25fe719f51af3ee2de27aa267e2a6ac9/1900x1900-000000-80-0-0.jpg" alt="" class="gallery-image">
+                <img src="https://i.scdn.co/image/ab6761610000e5eb1c91ee64878b36dcee243160" alt="" class="gallery-image">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Twitter</a>
+                <a href="#" class="social-icon">Instagram</a>
+            </div>
+            <p>2025 Rolling Loud. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const soldOutBtn = document.querySelector('.sold-out-btn');
+
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        soldOutBtn.classList.toggle('active');
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Parallax effect for hero image
+    window.addEventListener('scroll', function() {
+        const heroImage = document.querySelector('.hero-image');
+        const scrollPosition = window.pageYOffset;
+        heroImage.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+    });
+
+    // Animate elements when they come into view
+    const animateOnScroll = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(animateOnScroll, {
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('.artist, .travel-item, .gallery-image').forEach(el => {
+        observer.observe(el);
+    });
+});
+    </script>
+</body>
+</html>
