@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rolling Loud Germany</title>
     <link
     rel="shortcut icon"
     href="./img/favicon/favicon.png"
     type="image/x-icon"
     />
+    <title>Rolling Loud Germany</title>
     <style>
     @import url("https://fonts.googleapis.com/css2?family=Share:ital,wght@0,400;0,700;1,400;1,700&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Onest:wght@800&family=Sarabun:wght@600&display=swap");
-    
     html::-webkit-scrollbar {
         width: 8px;
     }
@@ -29,7 +28,6 @@
     html {
         overflow-x: hidden;
     }
-    
     * {
         margin: 0;
         padding: 0;
@@ -240,12 +238,6 @@
         background-color: #111;
     }
 
-    .gallery h2 {
-        text-align: center;
-        margin-bottom: 2rem;
-        font-size: 3.5rem;
-    }
-
     .gallery-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -254,15 +246,10 @@
 
     .gallery-image {
         width: 100%;
-        height: 200px;
+        height: 400px;
         object-fit: cover;
         border-radius: 10px;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .gallery-image:hover {
-        transform: scale(1.05);
-        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
     }
 
     footer {
@@ -322,6 +309,21 @@
     .gallery {
         animation: fadeIn 1s ease-out;
     }
+
+    .gallery {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .gallery-grid {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .gallery-image {
+        flex: 0 0 100%;
+    }
+
     </style>
 </head>
 <body>
@@ -358,7 +360,7 @@
         src="img/cinematic.mp4"
         ></video>
         <div class="hero-overlay"></div>
-        <h1 class="hero-title">GERMANY 2025</h1>
+        <h1 class="hero-title">Germany 2025</h1>
     </section>
 
     <section id="travel" class="travel">
@@ -380,25 +382,24 @@
     </section>
 
     <section id="gallery" class="gallery">
-        <h2>GALLERY</h2>
         <div class="gallery-grid">
         <img
-            src="https://media.npr.org/assets/img/2021/11/16/gettyimages-1235223332_sq-e88ad790d447bd7dfcb0c1571047db26d39a8ee0.jpg"
+            src="https://lightbox.chauvetlighting.com/m/3d029249eff67c1f/webimage-Rolling-Loud-festival1_photocredit_GregPalmer.jpg"
             alt=""
             class="gallery-image"
         />
         <img
-            src="https://charts-static.billboard.com/img/2017/09/trippie-redd-ck3-344x344.jpg"
+            src="https://www.magentamusik.de/uploads/images/Festivals/Rolling-Loud-Europe-2024/_1200x630_crop_center-center_82_none/Website_Wide-Teaser_VOD_2000x1125px_52_O24002_RollingLoud_2024.jpg?mtime=1720386104"
             alt=""
             class="gallery-image"
         />
         <img
-            src="https://cdn-images.dzcdn.net/images/artist/25fe719f51af3ee2de27aa267e2a6ac9/1900x1900-000000-80-0-0.jpg"
+            src="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.3982ee35-7bcf-4d37-a11b-316141f70da8/6/HERO-16X9/en-US._UR1920,1080_SX1080_FMjpg_.jpg"
             alt=""
             class="gallery-image"
         />
         <img
-            src="https://i.scdn.co/image/ab6761610000e5eb1c91ee64878b36dcee243160"
+            src="https://d26lks5qplj4xk.cloudfront.net/ykslf7mfmebdevuty9jrfhm34fps"
             alt=""
             class="gallery-image"
         />
@@ -463,6 +464,23 @@
         .forEach((el) => {
             observer.observe(el);
         });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const galleryGrid = document.querySelector(".gallery-grid");
+    const images = document.querySelectorAll(".gallery-image");
+    let index = 0;
+
+    function slideShow() {
+        index++;
+        if (index >= images.length) {
+            index = 0;
+        }
+        const offset = -index * 100; 
+        galleryGrid.style.transform = `translateX(${offset}%)`;
+    }
+
+    setInterval(slideShow, 3000); 
     });
     </script>
 </body>

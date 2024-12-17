@@ -238,12 +238,6 @@
         background-color: #111;
     }
 
-    .gallery h2 {
-        text-align: center;
-        margin-bottom: 2rem;
-        font-size: 3.5rem;
-    }
-
     .gallery-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -252,15 +246,10 @@
 
     .gallery-image {
         width: 100%;
-        height: 200px;
+        height: 400px;
         object-fit: cover;
         border-radius: 10px;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .gallery-image:hover {
-        transform: scale(1.05);
-        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
     }
 
     footer {
@@ -320,6 +309,21 @@
     .gallery {
         animation: fadeIn 1s ease-out;
     }
+
+    .gallery {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .gallery-grid {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .gallery-image {
+        flex: 0 0 100%;
+    }
+
     </style>
 </head>
 <body>
@@ -378,25 +382,24 @@
     </section>
 
     <section id="gallery" class="gallery">
-        <h2>GALLERY</h2>
         <div class="gallery-grid">
         <img
-            src="https://media.npr.org/assets/img/2021/11/16/gettyimages-1235223332_sq-e88ad790d447bd7dfcb0c1571047db26d39a8ee0.jpg"
+            src="https://rollingloudth.popbox.space/cdn/shop/files/BuakawxRolling-Loud-1920x540-RL-4.jpg?v=1678873781&width=3840"
             alt=""
             class="gallery-image"
         />
         <img
-            src="https://charts-static.billboard.com/img/2017/09/trippie-redd-ck3-344x344.jpg"
+            src="https://rollingloudth.popbox.space/cdn/shop/files/BuakawxRolling-Loud-1920x540-PRE-ORDER_1.jpg?v=1678766296&width=3840"
             alt=""
             class="gallery-image"
         />
         <img
-            src="https://cdn-images.dzcdn.net/images/artist/25fe719f51af3ee2de27aa267e2a6ac9/1900x1900-000000-80-0-0.jpg"
+            src="https://www.digitalmusicnews.com/wp-content/uploads/2021/04/rolling-loud-2021-feat.jpeg"
             alt=""
             class="gallery-image"
         />
         <img
-            src="https://i.scdn.co/image/ab6761610000e5eb1c91ee64878b36dcee243160"
+            src="https://ngehxdb.skymage.net/v1/rollingloudstore.com/storage/uploads/rollingloudstore.com%20banner_1920x730px.jpg?w=1920"
             alt=""
             class="gallery-image"
         />
@@ -461,6 +464,23 @@
         .forEach((el) => {
             observer.observe(el);
         });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const galleryGrid = document.querySelector(".gallery-grid");
+    const images = document.querySelectorAll(".gallery-image");
+    let index = 0;
+
+    function slideShow() {
+        index++;
+        if (index >= images.length) {
+            index = 0;
+        }
+        const offset = -index * 100; 
+        galleryGrid.style.transform = `translateX(${offset}%)`;
+    }
+
+    setInterval(slideShow, 3000); 
     });
     </script>
 </body>
