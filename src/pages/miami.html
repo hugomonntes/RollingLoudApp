@@ -1,12 +1,35 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rolling Loud Portugal</title>
-    <style>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+        rel="shortcut icon"
+        href="src/img/favicon/favicon.png"
+        type="image/x-icon"
+        />
+        <title>Rolling Loud Miami</title>
+        <style>
         @import url("https://fonts.googleapis.com/css2?family=Share:ital,wght@0,400;0,700;1,400;1,700&display=swap");
         @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Onest:wght@800&family=Sarabun:wght@600&display=swap");
+        
+        html::-webkit-scrollbar {
+        width: 8px;
+        }
+
+        html::-webkit-scrollbar-track {
+            background: rgb(0, 0, 0);
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background-color: rgb(111, 111, 111);
+            border-radius: 20px;
+        }
+
+        html {
+            overflow-x: hidden;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -131,14 +154,18 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.9) 100%);
+            background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.7) 0%,
+            rgba(0, 0, 0, 0.7) 100%
+            );
         }
 
         .hero-title {
             position: relative;
             font-size: 6rem;
             text-align: center;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
 
         .lineup {
@@ -262,148 +289,181 @@
         }
 
         @media (max-width: 768px) {
-            .nav-links, .sold-out-btn {
-                display: none;
+            .nav-links,
+            .sold-out-btn {
+            display: none;
             }
 
             .hamburger {
-                display: flex;
+            display: flex;
             }
 
             .hero-title {
-                font-size: 2.5rem;
+            font-size: 2.5rem;
             }
 
             .travel-item {
-                flex-basis: 100%;
+            flex-basis: 100%;
             }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+            opacity: 0;
+            }
+            to {
+            opacity: 1;
+            }
         }
 
-        .hero, .lineup, .travel, .gallery {
+        .hero,
+        .lineup,
+        .travel,
+        .gallery {
             animation: fadeIn 1s ease-out;
         }
-    </style>
-</head>
-<body>
-    <header>
+        </style>
+    </head>
+    <body>
+        <header>
         <nav>
             <div class="logo-container">
-                <a href="index.html"><img src="/src/img/logoRolling.png" alt="Rolling Loud Logo" class="logo"></a>
+            <a href="index.html"
+                ><img
+                src="/src/img/logoRolling.png"
+                alt="Rolling Loud Logo"
+                class="logo"
+            /></a>
             </div>
             <ul class="nav-links">
-                <li><a href="#">LINEUP</a></li>
-                <li><a href="#">TRAVEL</a></li>
-                <li><a href="#">MERCH</a></li>
-                <li><a href="#">LOUD CLUB</a></li>
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">CASHLESS</a></li>
+            <li><a href="#">LINEUP</a></li>
+            <li><a href="#">TRAVEL</a></li>
+            <li><a href="#">MERCH</a></li>
+            <li><a href="#">LOUD CLUB</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">CASHLESS</a></li>
             </ul>
             <button class="sold-out-btn">TICKETS</button>
-            <div class="hamburger">
-            </div>
+            <div class="hamburger"></div>
         </nav>
-    </header>
+        </header>
 
-    <main>
+        <main>
         <section class="hero">
-            <video autoplay loop muted class="hero-image" src="/src/img/cinematic.mp4"></video>
+            <video
+            autoplay
+            loop
+            muted
+            class="hero-image"
+            src="/src/img/cinematic.mp4"
+            ></video>
             <div class="hero-overlay"></div>
-            <h1 class="hero-title">MIAMI 2025 </h1>
+            <h1 class="hero-title">MIAMI 2025</h1>
         </section>
 
         <section id="travel" class="travel">
             <h2>TRAVEL INFORMATION</h2>
             <div class="travel-info">
-                <div class="travel-item">
-                    <h3>Getting There</h3>
-                    <p>Find the best routes to Praia da Rocha, Portimão.</p>
-                </div>
-                <div class="travel-item">
-                    <h3>Accommodation</h3>
-                    <p>Book your stay at our partner hotels and hostels.</p>
-                </div>
-                <div class="travel-item">
-                    <h3>Local Transportation</h3>
-                    <p>Discover how to move around during the festival.</p>
-                </div>
+            <div class="travel-item">
+                <h3>Getting There</h3>
+                <p>Find the best routes to Praia da Rocha, Portimão.</p>
+            </div>
+            <div class="travel-item">
+                <h3>Accommodation</h3>
+                <p>Book your stay at our partner hotels and hostels.</p>
+            </div>
+            <div class="travel-item">
+                <h3>Local Transportation</h3>
+                <p>Discover how to move around during the festival.</p>
+            </div>
             </div>
         </section>
 
         <section id="gallery" class="gallery">
             <h2>GALLERY</h2>
             <div class="gallery-grid">
-                <img src="https://media.npr.org/assets/img/2021/11/16/gettyimages-1235223332_sq-e88ad790d447bd7dfcb0c1571047db26d39a8ee0.jpg" alt="" class="gallery-image">
-                <img src="https://charts-static.billboard.com/img/2017/09/trippie-redd-ck3-344x344.jpg" alt="" class="gallery-image">
-                <img src="https://cdn-images.dzcdn.net/images/artist/25fe719f51af3ee2de27aa267e2a6ac9/1900x1900-000000-80-0-0.jpg" alt="" class="gallery-image">
-                <img src="https://i.scdn.co/image/ab6761610000e5eb1c91ee64878b36dcee243160" alt="" class="gallery-image">
+            <img
+                src="https://media.npr.org/assets/img/2021/11/16/gettyimages-1235223332_sq-e88ad790d447bd7dfcb0c1571047db26d39a8ee0.jpg"
+                alt=""
+                class="gallery-image"
+            />
+            <img
+                src="https://charts-static.billboard.com/img/2017/09/trippie-redd-ck3-344x344.jpg"
+                alt=""
+                class="gallery-image"
+            />
+            <img
+                src="https://cdn-images.dzcdn.net/images/artist/25fe719f51af3ee2de27aa267e2a6ac9/1900x1900-000000-80-0-0.jpg"
+                alt=""
+                class="gallery-image"
+            />
+            <img
+                src="https://i.scdn.co/image/ab6761610000e5eb1c91ee64878b36dcee243160"
+                alt=""
+                class="gallery-image"
+            />
             </div>
         </section>
-    </main>
+        </main>
 
-    <footer>
+        <footer>
         <div class="footer-content">
             <div class="social-links">
-                <a href="#" class="social-icon">Facebook</a>
-                <a href="#" class="social-icon">Twitter</a>
-                <a href="#" class="social-icon">Instagram</a>
+            <a href="#" class="social-icon">Facebook</a>
+            <a href="#" class="social-icon">Twitter</a>
+            <a href="#" class="social-icon">Instagram</a>
             </div>
             <p>2025 Rolling Loud. All rights reserved.</p>
         </div>
-    </footer>
+        </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const soldOutBtn = document.querySelector('.sold-out-btn');
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const hamburger = document.querySelector(".hamburger");
+            const navLinks = document.querySelector(".nav-links");
+            const soldOutBtn = document.querySelector(".sold-out-btn");
 
-    hamburger.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        soldOutBtn.classList.toggle('active');
-    });
+            hamburger.addEventListener("click", function () {
+            this.classList.toggle("active");
+            navLinks.classList.toggle("active");
+            soldOutBtn.classList.toggle("active");
+            });
 
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+                document.querySelector(this.getAttribute("href")).scrollIntoView({
+                behavior: "smooth",
+                });
+            });
+            });
+
+            window.addEventListener("scroll", function () {
+            const heroImage = document.querySelector(".hero-image");
+            const scrollPosition = window.pageYOffset;
+            heroImage.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+            });
+
+            const animateOnScroll = (entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                entry.target.classList.add("animate");
+                observer.unobserve(entry.target);
+                }
+            });
+            };
+
+            const observer = new IntersectionObserver(animateOnScroll, {
+            threshold: 0.1,
+            });
+
+            document
+            .querySelectorAll(".artist, .travel-item, .gallery-image")
+            .forEach((el) => {
+                observer.observe(el);
             });
         });
-    });
-
-    // Parallax effect for hero image
-    window.addEventListener('scroll', function() {
-        const heroImage = document.querySelector('.hero-image');
-        const scrollPosition = window.pageYOffset;
-        heroImage.style.transform = `translateY(${scrollPosition * 0.5}px)`;
-    });
-
-    // Animate elements when they come into view
-    const animateOnScroll = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-                observer.unobserve(entry.target);
-            }
-        });
-    };
-
-    const observer = new IntersectionObserver(animateOnScroll, {
-        threshold: 0.1
-    });
-
-    document.querySelectorAll('.artist, .travel-item, .gallery-image').forEach(el => {
-        observer.observe(el);
-    });
-});
-    </script>
-</body>
-</html>
+        </script>
+    </body>
+    </html>
